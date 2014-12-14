@@ -9,8 +9,9 @@ window.onload = function() {
     });
   });
 
-  document.querySelector("#toDoInput").addEventListener("change", addToDo);
-  document.querySelector("#deleteAll").addEventListener("click", deleteAllPersist);
+  $("#toDoInput").change(addToDo);
+  $("#deleteAll").click(deleteAllPersist);
+
 
 }
 
@@ -76,8 +77,8 @@ function writeSyncFS(callback) {
 
 function addToDo() {
 
-  data.tasks.push(document.querySelector("#toDoInput").value);
-  document.querySelector("#toDoInput").value = "";
+  data.tasks.push($("#toDoInput").val());
+  $("#toDoInput").val("");
 
   outputToDoItems(function() {
     writeSyncFS(function() {
@@ -90,20 +91,13 @@ function addToDo() {
 function outputToDoItems(callback) {
   deleteAll();
   for (var i in data.tasks) {
-    node = document.createTextNode(data.tasks[i]);
-    parentElement = document.querySelector("#toDoList");
-    listElement = document.createElement("li");
-    listElement.appendChild(node);
-    parentElement.appendChild(listElement);
+    $("#toDoList").append("<li>"+data.tasks[i]+"</li>");
   }
   callback();
 }
 
 function deleteAll() {
-  var myNode = document.querySelector("#toDoList");
-  while (myNode.firstChild) {
-    myNode.removeChild(myNode.firstChild);
-  }
+  $("#toDoList").empty();
 }
 
 function deleteAllPersist() {
