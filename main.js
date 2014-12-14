@@ -13,30 +13,39 @@ window.onload = function() {
 
   document.querySelector("#deleteAll").addEventListener("click", deleteAllPersist);
 
+  //document.querySelector("#test").addEventListener("click", firstRun);
+
 }
 
 function loadToDoTasks(callback) {
   chrome.syncFileSystem.requestFileSystem(function(fs) {
-    fs.root.getFile('tasks.json', {create: false}, function(file) {
-      file.file(function(readFile) {
+    fs.root.getFile("tasks.json", {create:false}, function() {
+      fs.root.getFile('tasks.json', {create: false}, function(file) {
+        file.file(function(readFile) {
 
-        var reader = new FileReader();
+          var reader = new FileReader();
 
-        reader.onerror = function(e) {
-          console.log(e);
-        }
+          reader.onerror = function(e) {
+            console.log(e);
+          }
 
-        reader.onloadend = function(e) {
+          reader.onloadend = function(e) {
+            data = JSON.parse(this.result);
+            callback();
+          }
 
-          data = JSON.parse(this.result);
+          reader.readAsText(readFile);
 
-          callback();
-        }
-
-        reader.readAsText(readFile);
-
+        })
       })
-    })
+    }, function() {
+      fs.root.getFile("tasks.json", {create:true}, function() {
+        console.log("File missing, creating new tasks file.");
+        writeSyncFS(function() {
+          console.log("tasks.json successfully created");
+        });
+      });
+    });
   })
 }
 
@@ -47,7 +56,10 @@ function writeSyncFS(callback) {
       file.createWriter(function(writer) {
 
         writer.onwriteend = function(e) {
-
+          writer.onwriteend = null;
+          jsonString = JSON.stringify(data);
+          var blob = new Blob([jsonString]);
+          writer.write(blob);
           console.log("File successfully written");
 
         }
@@ -58,13 +70,10 @@ function writeSyncFS(callback) {
 
         }
 
+        writer.seek(writer.length);
         writer.truncate(0);
 
-        jsonString = JSON.stringify(data);
 
-        var blob = new Blob([jsonString]);
-
-        writer.write(blob);
 
       })
     })
