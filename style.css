@@ -1,0 +1,22 @@
+/* CSS file placeholder. */
+html, body {
+  margin:0;
+  padding:0;
+}
+
+#container {
+  margin:5px;
+  width:auto;
+  height:auto;
+  overflow:hidden;
+}
+
+#toDoInput {
+  width:236px;
+  margin-bottom:5px;
+}
+
+#deleteAll {
+  margin:0;
+  float:right;
+}
