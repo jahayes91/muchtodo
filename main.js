@@ -10,10 +10,7 @@ window.onload = function() {
   });
 
   document.querySelector("#toDoInput").addEventListener("change", addToDo);
-
   document.querySelector("#deleteAll").addEventListener("click", deleteAllPersist);
-
-  //document.querySelector("#test").addEventListener("click", firstRun);
 
 }
 
@@ -41,9 +38,11 @@ function loadToDoTasks(callback) {
     }, function() {
       fs.root.getFile("tasks.json", {create:true}, function() {
         console.log("File missing, creating new tasks file.");
+
         writeSyncFS(function() {
           console.log("tasks.json successfully created");
         });
+
       });
     });
   })
@@ -61,19 +60,14 @@ function writeSyncFS(callback) {
           var blob = new Blob([jsonString]);
           writer.write(blob);
           console.log("File successfully written");
-
         }
 
         writer.onerror = function(e) {
-
           console.log("Error:" + e);
-
         }
 
         writer.seek(writer.length);
         writer.truncate(0);
-
-
 
       })
     })
@@ -81,8 +75,10 @@ function writeSyncFS(callback) {
 }
 
 function addToDo() {
+
   data.tasks.push(document.querySelector("#toDoInput").value);
   document.querySelector("#toDoInput").value = "";
+
   outputToDoItems(function() {
     writeSyncFS(function() {
 
