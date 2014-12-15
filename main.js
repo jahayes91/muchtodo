@@ -11,9 +11,25 @@ window.onload = function() {
 
   $("#toDoInput").change(addToDo);
   $("#deleteAll").click(deleteAllPersist);
+  $('#toDoList').on('click', 'li', function() {
+    var arrIndex = data.tasks.indexOf($(this).text());
 
+    console.log($(this).text())
+    $(this).remove();
+    if (arrIndex > -1) {
+      data.tasks.splice(arrIndex, 1);
+    }
+
+    console.log(data.tasks);
+
+    writeSyncFS(function() {
+
+    });
+  });
 
 }
+
+
 
 function loadToDoTasks(callback) {
   chrome.syncFileSystem.requestFileSystem(function(fs) {
