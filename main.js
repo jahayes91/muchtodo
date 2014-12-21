@@ -107,7 +107,7 @@ function addToDo() {
 function outputToDoItems(callback) {
   deleteAll();
   for (var i in data.tasks) {
-    $("#toDoList").append("<li>"+data.tasks[i]+"</li>");
+    $("#toDoList").append("<li>"+data.tasks[i]+"<a href="#">X</a></li>");
   }
   callback();
 }
