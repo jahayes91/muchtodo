@@ -2,6 +2,12 @@ var data = {"tasks":[]};
 
 window.onload = function() {
 
+  $('#toDoInput').css('width', (($('#main').innerWidth()) - 9));
+
+  window.onresize = function() {
+    $('#toDoInput').css('width', (($('#main').innerWidth()) - 9));
+  }
+
   loadToDoTasks(function() {
     console.log(data.tasks);
     outputToDoItems(function() {
@@ -107,7 +113,7 @@ function addToDo() {
 function outputToDoItems(callback) {
   deleteAll();
   for (var i in data.tasks) {
-    $("#toDoList").append("<li>"+data.tasks[i]+"<a href="#">X</a></li>");
+    $("#toDoList").append("<li>"+data.tasks[i]+"</li>");
   }
   callback();
 }

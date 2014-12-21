@@ -1,19 +1,67 @@
 /* CSS file placeholder. */
+
+@font-face {
+    font-family: 'Slabo 27px';
+    src: url(assets/Slabo27px-Regular.ttf);
+}
+
 html, body {
   margin:0;
   padding:0;
+  height:100%;
 }
 
-#container {
-  margin:5px;
-  width:auto;
+#sidebar {
+  position:relative;
+  float:left;
+  height:100%;
+  width:30%;
+  margin:0;
+  background-image:url(assets/noisy_net.png);
+  background-repeat:repeat;
+  -webkit-box-shadow: inset -6px 0px 3px 0px rgba(232,232,232,1);
+}
+
+#sidebar h3 {
+  margin:10px;
+  padding:0;
+  font-family: 'Slabo 27px';
+  font-size:27px;
+  color:#e5e4e2;
+}
+
+#help-icon {
   height:auto;
+  width:30px;
+  position:absolute;
+  bottom:10px;
+  left:10px;
+}
+
+#settings-icon {
+  height:auto;
+  width:30px;
+  position:absolute;
+  bottom:10px;
+  right:15px;
+}
+
+#main {
+  margin:0;
+  padding:5px 5px 5px 0px;
+  width:auto;
+  height:100%;
+  background-color:#e8e8e8;
   overflow:hidden;
 }
 
 #toDoInput {
-  width:236px;
+  height:30px;
+  width:500px;
   margin-bottom:5px;
+  padding-left:3px;
+  font-family:'Slabo 27px';
+  font-size:14px;
 }
 
 #deleteAll {
@@ -32,6 +80,13 @@ html, body {
   margin:0 25px 0 0;
   border:0;
   border-bottom:1px;
-  border-style:solid;
+  border-style:dotted;
   border-color:black;
+  font-family:'Slabo 27px';
+  font-size:16px;
+}
+
+#toDoList li:hover {
+  color:#686868;
+  border-color:#686868;
 }

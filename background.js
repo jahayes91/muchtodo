@@ -8,7 +8,7 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
   chrome.app.window.create(
     'index.html',
     {
-      innerBounds: {width: 250, height: 450}
+      innerBounds: {width: 800, height: 450}
     }
   );
 });
