@@ -1,4 +1,8 @@
-/* CSS file placeholder. */
+/*
+#################
+## Global
+#################
+*/
 
 @font-face {
     font-family: 'Slabo 27px';
@@ -10,6 +14,13 @@ html, body {
   padding:0;
   height:100%;
 }
+
+
+/*
+################
+## Sidebar
+################
+*/
 
 #sidebar {
   position:relative;
@@ -46,9 +57,38 @@ html, body {
   right:15px;
 }
 
+#settings-icon:hover {
+  -webkit-animation:spin 100ms linear infinite;
+}
+
+
+/*
+#################
+## Menu
+#################
+*/
+
+#menu {
+  margin:0;
+  padding:5px 5px 5px 2px;
+  height:auto;
+  width:100%;
+}
+
+/*
+#################
+## Main Content
+#################
+*/
+
+#list-container {
+  height:100%;
+  margin:0;
+}
+
 #main {
   margin:0;
-  padding:5px 5px 5px 0px;
+  padding:0;
   width:auto;
   height:100%;
   background-color:#e8e8e8;
@@ -58,15 +98,10 @@ html, body {
 #toDoInput {
   height:30px;
   width:500px;
-  margin-bottom:5px;
-  padding-left:3px;
+  padding:0;
+  margin:0 0 5px 0;
   font-family:'Slabo 27px';
   font-size:14px;
-}
-
-#deleteAll {
-  margin:0 0 5px 0;
-  float:right;
 }
 
 #toDoList {
@@ -89,4 +124,27 @@ html, body {
 #toDoList li:hover {
   color:#686868;
   border-color:#686868;
+}
+
+/*
+###################
+## Classes
+###################
+*/
+
+.menu-icons {
+  float:right;
+  margin-right: 5px;
+  height:25px;
+  width:auto;
+}
+
+.rotate {
+  -webkit-transition-duration: 0.8s;
+  -webkit-transition-property: -webkit-transform;
+  overflow:hidden;
+}
+
+.rotate:hover {
+  -webkit-transform:rotate(90deg);
 }

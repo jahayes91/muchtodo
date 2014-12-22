@@ -2,10 +2,10 @@ var data = {"tasks":[]};
 
 window.onload = function() {
 
-  $('#toDoInput').css('width', (($('#main').innerWidth()) - 9));
+  $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 12));
 
   window.onresize = function() {
-    $('#toDoInput').css('width', (($('#main').innerWidth()) - 9));
+    $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 12));
   }
 
   loadToDoTasks(function() {
@@ -34,8 +34,6 @@ window.onload = function() {
   });
 
 }
-
-
 
 function loadToDoTasks(callback) {
   chrome.syncFileSystem.requestFileSystem(function(fs) {
