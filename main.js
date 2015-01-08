@@ -2,10 +2,19 @@ var data = {"tasks":[]};
 
 window.onload = function() {
 
-  $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 12));
+  $('#main').css('height', ($(window).height()));
+  $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 11));
+  $('#toDoList').height(function(index, height) {
+    return window.innerHeight - $(this).offset().top - 12;
+  });
 
   window.onresize = function() {
-    $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 12));
+    $('#main').css('height', ($(window).height()));
+    $('#toDoInput').css('width', (($('#list-container').innerWidth()) - 11));
+    $('#toDoList').height(function(index, height) {
+      return window.innerHeight - $(this).offset().top - 12;
+    });
+
   }
 
   loadToDoTasks(function() {
@@ -127,3 +136,11 @@ function deleteAllPersist() {
 
   });
 }
+
+$(document).ready(function(){
+  $('.img-zoom').hover(function() {
+    $(this).addClass('transition');
+  }, function() {
+    $(this).removeClass('transition');
+  });
+});
