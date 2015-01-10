@@ -20,5 +20,6 @@
     "syncFileSystem",
     "fileSystem",
     "http://fonts.googleapis.com/"
-  ]
+  ],
+  "key": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1AqJ8d1puUzremZGHOl5pXQn3JLyLHwlDIotkjDnmvJWQkMw/Rl1yICM1yAwffy2GBM6sBrdNEdWd7xWxJf+h5Y8oh/UOI7zIdOak3MdbHP4ghpEwJtaMe64gwB9wjfd3MiB7tMZEHrAnmhSWGlPZdGMQmIm2fQ4SIA0ISsaqfbFNe12WQeMd7Jr8XCBO1bB6TosJzt5OUws4+ceQLIXtRuNKud1edhbUoi6ehi4e1W1V1EwcWmZMw3J3oWRCEpm09MiLt9ews82rqDC7X8LAwTenU6XD4HR4oUbTFyX/CanfpABYWdMw9wouB0FLsTKAcrS7VI/4FToNlADB88UDQIDAQAB-----END PUBLIC KEY-----"
 }
